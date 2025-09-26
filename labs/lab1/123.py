@@ -11,7 +11,7 @@
 # a=342
 # b= 56.2
 # c='43'
-# d=(a+float(b) + int(c))
+# d=(a+b + int(c))
 # print(d)
 #4
 # a=3
