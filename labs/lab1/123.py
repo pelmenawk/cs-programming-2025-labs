@@ -52,4 +52,3 @@ def num12():
     print(a[-2:])
     print(a[3:7])
     print(a[::-1])
-num2()
