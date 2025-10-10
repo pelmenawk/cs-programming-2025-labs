@@ -41,5 +41,4 @@ def num8():
         cifra=input('Введите 2 числа через пробел:')
         a,b=cifra.split(' ')
         c=int(a)+int(b)
-        print(c)
-num8()
+        print(c) 
