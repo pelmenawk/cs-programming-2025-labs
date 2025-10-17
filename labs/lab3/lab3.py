@@ -42,4 +42,3 @@ def num8():
         a,b=cifra.split(' ')
         c=int(a)+int(b)
         print(c)
-num8()
