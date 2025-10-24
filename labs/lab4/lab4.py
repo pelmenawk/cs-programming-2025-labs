@@ -88,13 +88,13 @@ def num10():
     zachem=True
     if a.isdigit():
         a=int(a)
-        for i in range(2,a+1):
+        for i in range(2,a):
             if a==1 or a%i==0:
                 zachem=False
-            if zachem==False:
-                print(f"Число{a}-простое")
-            else:
-                print(f"Число {a}-составное")
+        if zachem==True:
+            print(f"Число {a}-простое")
+        else:
+            print(f"Число {a}-составное")
     else:
         print(f"Число {a},стоп,в его числе есть буквы")
 num10()
