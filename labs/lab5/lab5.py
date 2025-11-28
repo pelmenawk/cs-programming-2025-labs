@@ -48,7 +48,9 @@ def num8():
     inp=input("Начинайте игру:")
     if inp in a:
         comp=random.choice(a)
-        if inp=="ножницы" and comp=="бумага" or\
+        if inp==comp:
+            print("Ничья")
+        elif inp=="ножницы" and comp=="бумага" or\
         inp=="бумага" and comp=="камень" or\
         inp=="камень" and comp=="ящерица" or\
         inp=="ящерица" and comp=="спок" or\
@@ -61,6 +63,7 @@ def num8():
             print(f"Вы победили,компьютер выбрал:{comp}")
         else:
             print(f"Вы проиграли,компьютер выбрал:{comp}")
+        
 def num9():
     a=["яблоко", "груша", "банан", "киви", "апельсин", "ананас"]
     b={}
