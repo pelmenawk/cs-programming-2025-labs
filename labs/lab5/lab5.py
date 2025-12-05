@@ -82,5 +82,3 @@ def num10():
     beststudent=max(b,key=b.get)
     bestavg=b[max(b,key=b.get)]
     print(f"Лучший студент {beststudent} с средним баллом {bestavg}")
-
-num8()
