@@ -1,5 +1,5 @@
 time=input("Введите время и нужную величину в которую нужно его перевести:")    
-a,b=time.split(" ")
+a,b=time.split()
 
 def perevod(x,y):
     if y[-1]=="h" and y[0]=="m":
