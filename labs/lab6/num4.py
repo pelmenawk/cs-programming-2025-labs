@@ -1,12 +1,12 @@
-size = input('Введите размерность матрицы:').split()
-n1 = int(size[0])
-n2 = int(size[-1])
+matrix=input("Введите размерность матрицы через пробел:").split()
+n1=int(matrix[0])
+n2=int(matrix[-1])
 if n1!=n2 or n1<=2 or n2<=2:
-    print("седня не")
+    print("ерор размерности")
 else:
-    a = []
-    b = []
-    c = []
+    a=[]
+    b=[]
+    c=[]
     for i in range(n1):
         a.append(input("введите строку первой матрицы:").split())
     for i in range(n1):
