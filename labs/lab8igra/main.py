@@ -21,6 +21,5 @@ stat_point = 0
 
 
 create_char()     
-exp += 10
-lvl_up()
-char.show_stats(lvl,exp,req_exp)
+
+char.show_inventory()

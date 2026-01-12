@@ -6,10 +6,15 @@ strenght = 0
 agility = 0
 defence = 0
 
-inventory=[]
+weapons = ["Меч", "Кинжал", "Лук", "Копье", "Сковородочаки"]
+armor = ["Латная броня", "Кольчуга", "Кожаная броня"]
+useables = ["Малое зелье исцеления", "Среднее зелье исцеления", "Большое зелье исцеления"]
+
+inventory = {"weapon":"", "armor":""}
+for i in range(1,6): inventory [str(i)]=""
 
 class Character:
-    def init(self):
+    def __init__(self):
         print('Who are you?')
         name = input("> ")
         print("Выберите расу:")
@@ -64,8 +69,8 @@ class Character:
                 agility -= 1
         else:
             print("Такой расы нет!")
+        now_hp = max_hp
         return max_hp, strenght, agility, defence, height, weight
-    now_hp = max_hp
     
     def show_stats(self,lvl,exp,req_exp):
         global max_hp, now_hp, strenght, agility, defence
@@ -102,6 +107,9 @@ class Character:
             print("Такой опции нет")
 
     def show_inventory(self):
-        global inventory 
-        for i in range(len(inventory)):
-            print(f"{i+1}- {inventory[i]}")
+        global inventory
+        for i in range(1,6):
+            print(f"{i} - {inventory[str(i)]}")
+
+    def inventory_use(self):
+        for i in range(1,6):
