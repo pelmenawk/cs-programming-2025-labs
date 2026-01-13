@@ -1,12 +1,4 @@
 from racevse import *
-def lvl_up():
-    global char, exp, req_exp, lvl, stat_point
-    while exp > req_exp:
-        req_exp += lvl
-        lvl += 1
-        exp = exp - req_exp
-        stat_point += 1
-        char.up_stats()
 
 def create_char():
     global char
@@ -21,5 +13,3 @@ stat_point = 0
 
 
 create_char()     
-
-char.show_inventory()

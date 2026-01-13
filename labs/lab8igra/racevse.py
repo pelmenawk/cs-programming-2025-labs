@@ -10,74 +10,82 @@ for i in range(1,6): inventory [str(i)]=""
 class Character:
     def __init__(self):
         print('Who are you?')
-        name = input("> ")
-        print("Выберите расу:")
-        print("1 - Человек")
-        print("2 - Эльф")
-        print("3 - Дворф")
-        race = input('> ')
-        print("Ваш персонаж создан!")
-        self.name = name
-        self.race = race
+        self.name = input("> ")
+        self.race =""
         self.max_hp = 0
         self.now_hp = 0
         self.strength = 0
         self.agility = 0
         self.defence = 0
         self.money = 0
+        self.floor = 0
+        self.req_exp = 5
+        self.exp = 0
+        self.lvl = 1
+        self.stat_point = 0
+        self.self.weight = 0
+        self.height = 0
 
     def char_stats(self):
+        print("Выберите расу:")
+        print("1 - Человек")
+        print("2 - Эльф")
+        print("3 - Дворф")
+        self.race = input('> ')
         if self.race == "1":
             self.max_hp = randint(90,110)
             self.strength = randint(4,8)
             self.agility = randint(5,10)
             self.defence = randint(3,5)
-            height = randint(150,200)
-            weight = randint(60,90)
-            if weight < 70 and height < 160:
+            self.height = randint(150,200)
+            self.weight = randint(60,90)
+            if self.weight < 70 and self.height < 160:
                 self.strength -= 1
                 self.agility += 1
-            elif weight > 80 and height > 190:
+            elif self.weight > 80 and self.height > 190:
                 self.strength += 1
                 self.agility -= 1
+            print("Ваш персонаж создан!")
         elif self.race == "2":
             self.max_hp = randint(70,90)
             self.strength = randint(4,8)
             self.agility = randint(8,14)
             self.defence = randint(3,5)
-            height = randint(175,210)
-            weight = randint(40,70)
-            if weight < 50 and height < 185:
+            self.height = randint(175,210)
+            self.weight = randint(40,70)
+            if self.weight < 50 and self.height < 185:
                 self.strength -= 1
                 self.agility += 2
-            elif weight > 60 and height > 200:
+            elif self.weight > 60 and self.height > 200:
                 self.strength += 1
                 self.agility -= 1
+            print("Ваш персонаж создан!")
         elif self.race == "3":
             self.max_hp = randint(100,130)
             self.strength = randint(5,10)
             self.agility = randint(3,6)
             self.defence = randint(6,10)
-            height = randint(100,130)
-            weight = randint(70,100)
-            if weight < 80 and height < 110:
+            self.height = randint(100,130)
+            self.weight = randint(70,100)
+            if self.weight < 80 and self.height < 110:
                 self.strength -= 1
                 self.agility += 1
-            elif weight > 90 and height > 120:
+            elif self.weight > 90 and self.height > 120:
                 self.strength += 2
                 self.agility -= 1
+            print("Ваш персонаж создан!")
         else:
             print("Такой расы нет!")
         self.now_hp = self.max_hp
-        return self.max_hp, self.strength, self.agility, self.defence, height, weight
+        return self.max_hp, self.strength, self.agility, self.defence, self.weight, self.height
     
-    def show_stats(self,lvl,exp,req_exp):
+    def show_stats(self):
         print('ВАШ ПЕРСОНАЖ:')
         print('---------')
         print(f'Name:{self.name}')
         print('---------')
-        print(f'LVL:{lvl}')
-        print(f'EXP:{exp}\{req_exp}')
+        print(f'LVL:{self.lvl}')
+        print(f'EXP:{self.exp}\{self.req_exp}')
         print('---------')
         print(f'HP:{self.now_hp}\{self.max_hp}')
         print(f'STR:{self.strength}')
@@ -123,7 +131,6 @@ class Character:
                 choosen_num = input('> ')
                 print('Что вы хотите с ним сделать?')
 
-                # Для оружия
                 if any(item in inventory[choosen_num] for item in weapons):
                     print('1 - Переложить  в основную руку\n2 - Выкинуть\n3 - Ничего')
                     choosen_num1 = input('> ')
@@ -147,8 +154,7 @@ class Character:
                         inventory[choosen_num] = ''
                     elif choosen_num1 == '3':
                         pass
-                
-                # Для брони
+            
                 elif any(item in inventory[choosen_num] for item in armor):
                     print('1 - Надеть\n2 - Выкинуть\n3 - Ничего')
                     choosen_num1 = input('> ')
@@ -168,7 +174,6 @@ class Character:
                     elif choosen_num1 == '3':
                         pass
                 
-                # Для расходников
                 elif inventory[choosen_num] in useables:
                     print('1 - Выпить\n2 - Выкинуть\n3 - Ничего')
                     choosen_num1 = input('> ')
@@ -192,3 +197,11 @@ class Character:
                         break
         else:
             print('У вас в инвентаре ничего нет')
+
+    def lvl_up(self):
+        while self.exp > self.req_exp:
+            self.req_exp += self.lvl
+            self.lvl += 1
+            self.exp = self.exp - self.req_exp
+            self.stat_point += 1
+            self.up_stats()
