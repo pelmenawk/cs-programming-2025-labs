@@ -23,7 +23,7 @@ class Character:
         self.exp = 0
         self.lvl = 1
         self.stat_point = 0
-        self.self.weight = 0
+        self.weight = 0
         self.height = 0
 
     def char_stats(self):
