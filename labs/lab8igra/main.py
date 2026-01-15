@@ -13,3 +13,4 @@ stat_point = 0
 
 
 create_char()     
+я
