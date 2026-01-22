@@ -4,13 +4,9 @@ def create_char():
     global char
     char = Character()
     char.char_stats()
-    char.show_stats(lvl,exp,req_exp)
+    char.show_stats()
 
-req_exp = 5
-exp = 0
-lvl = 1
-stat_point = 0
-
-
-create_char()     
-я
+create_char() 
+while True:
+    if char.menu():
+        break
