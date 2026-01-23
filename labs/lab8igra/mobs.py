@@ -15,6 +15,8 @@ class Mob:
         self.exp = 0
         self.money = 0
 
+    #Спавн мобов
+    
     def mob_stats(self):
         rand_num = randint(0,100)
 

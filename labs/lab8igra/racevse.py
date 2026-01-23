@@ -362,8 +362,7 @@ class Character:
     def menu(self):
         if self.now_hp <= 0:
             print("Конец игры")
-            self.gameover()
-            return True
+            return self.gameover()
         
         self.change_floor()
         self.lvl_up()
@@ -685,6 +684,7 @@ class Character:
     #Экран смерти
 
     def gameover(self):
+        global inventory
         print(f'\nВы находились на {self.floor} этаже в {self.room} комнате.\nУ вас было {self.money} золота.\nВы были {self.lvl} уровня')
         print("\nВыберите действие:\n1.Начать игру заново\n2.Закончить игру\n")
         chosen_num = input("> ")
@@ -694,18 +694,21 @@ class Character:
             self.name = input("> ")
             self.race = ''
             self.money = 0
-            self.floor = 0
+            self.floor = 1
             self.exp = 0
             self.req_exp = 5
             self.lvl = 1
             self.stat_point = 0
-            self.room = 0
+            self.room = 1
+            inventory = {"weapon":"", "armor":""}
+            for i in range(1,6): inventory [str(i)]=""
             self.char_stats()
             self.show_stats()
             self.menu()
+            return False
 
         elif chosen_num == "2":
-            pass
+            return True
 
         else:
             print("Такого варианта нет!")
