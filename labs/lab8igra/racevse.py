@@ -252,7 +252,7 @@ class Character:
                 print('Что вы хотите с ним сделать?')
 
                 if any(item in inventory[choosen_num] for item in weapons):
-                    print('1 - Переложить  в основную руку\n2 - Выкинуть\n3 - Ничего')
+                    print('1 - Взять в руку\n2 - Выкинуть\n3 - Ничего')
                     choosen_num1 = input('> ')
                     
                     if choosen_num1 == '1':
