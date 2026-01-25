@@ -111,22 +111,21 @@ class Mob:
     def mob_scale(self):
         self.mob_stats()
 
-        for j in range(2):
-            for i in range(self.room):
-                rand_num = randint(1,4)
+        for i in range(self.room):
+            rand_num = randint(1,4)
 
-                if rand_num == 1:
-                    self.max_hp += 2
-                    self.cur_hp += 2
+            if rand_num == 1:
+                self.max_hp += 2
+                self.cur_hp += 2
 
-                elif rand_num == 2:
-                    self.strenght += 1
+            elif rand_num == 2:
+                self.strenght += 1
 
-                elif rand_num == 3:
-                    self.defence += 1
+            elif rand_num == 3:
+                self.defence += 1
 
-                else:
-                    self.agility += 1
+            else:
+                self.agility += 1
 
         for i in range(self.floor - 1):
             self.max_hp += 2
